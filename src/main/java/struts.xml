@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+ "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+ "http://struts.apache.org/dtds/struts-2.5.dtd">
+ 
+
+
+<struts>
+
+<constant name="struts.velocity.configfile" value="/WEB-INF/velocity.properties" />
+<constant name="struts.view.type" value="velocity" />
+
+
+	<package name="default" extends="struts-default">
+
+		<action name="index">
+			<result>index.jsp</result>
+		</action>
+
+		<action name="admin" class="com.action.AdminLogin">
+			<result name="success">welcome.jsp</result>
+			<result name="input">admin.jsp</result>
+		</action>
+
+
+		<action name="viewResult" class="com.action.ViewResultAction">
+			<result name="success">resultview.jsp</result>
+			<result name="error">resultview.jsp</result>
+		</action>
+
+		
+		<action name="viewtoppers" class="com.action.Admin" method="toppersList">
+			<result name="TOPPERS">toppers.jsp</result>
+			
+		</action>
+
+
+		<action name="Faculty" class="com.action.Admin" method="insertFaculty">
+			<result name="INSERT">insertFaculty.jsp</result>
+			<result name="input">insertFaculty.jsp</result>
+		</action>
+
+		<action name="viewfaculty" class="com.action.Admin" method="viewFacultyDetails">
+			<result name="Faculty">faculty.jsp</result>
+		</action>
+
+		<action name="Student" class="com.action.Admin" method="insertStudentDetails">
+			<result name="STUDENT">insertstudent.jsp</result>
+		</action>
+
+		<action name="user" class="com.action.UserAction">
+			<result name="success">adduser.jsp</result>
+			<result name="input">user.jsp</result>
+		</action>
+
+		<action name="admission" class="com.action.Admission" method="addAdmission">
+			<result name="ADMISSION">admission.jsp</result>
+		</action>
+
+
+		<action name="viewadmission" class="com.action.Admission" method="listAdmission">
+			<result name="VIEW ADMISSION">viewadmission.jsp</result>
+		</action>
+
+		<action name="submitEnquiry" class="com.action.EnquiryAction">
+			<result name="SUCCESS">enqsuccess.jsp</result>
+			<result name="input">enquiry.jsp</result>
+		</action>
+
+
+
+	</package>
+</struts>
